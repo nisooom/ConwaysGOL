@@ -4,7 +4,17 @@
 
 #ifndef CGOL_CGOL_H
 #define CGOL_CGOL_H
+
 #include "main.h"
+#include "raylib.h"
+#include "stdbool.h"
+#include "stdio.h"
+
+void nextTile() {
+    BeginDrawing();
+    drawTiles();
+    EndDrawing();
+}
 
 int countAliveNeighbors(int x, int y) {
     int count = 0;
@@ -59,8 +69,7 @@ void algorithm() {
             GRID_TILES[i][j] = newGrid[i][j];
         }
     }
-
-    updateGrid();
+    nextTile();
 }
 
 #endif //CGOL_CGOL_H
